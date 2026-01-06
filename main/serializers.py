@@ -4,4 +4,4 @@ from rest_framework import serializers
 class TripSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trip
-        fields = ['current_location', 'pickup_location', 'dropoff_location', 'estimated_cycle_used', 'driver', 'created_at']
+        fields = ['id','current_location', 'pickup_location', 'dropoff_location', 'estimated_cycle_used', 'driver', 'created_at']
