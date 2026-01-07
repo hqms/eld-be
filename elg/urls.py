@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.urls import include, path
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from rest_framework.routers import DefaultRouter
+from main.views import home
 from main.viewsets import TripViewSet
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -14,6 +15,7 @@ router = DefaultRouter()
 router.register(r'trip', TripViewSet, basename='trip')
 
 urlpatterns = [
+    path('', home, name='home'),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
 
