@@ -11,4 +11,4 @@ class TripAdmin(admin.ModelAdmin):
 
 @admin.register(Actvity)
 class ActvityAdmin(admin.ModelAdmin):
-    list_display = ('trip', 'activity_type', 'start_time', 'end_time', 'location')
+    list_display = ('driver', 'activity_type', 'start_time', 'end_time', 'location')

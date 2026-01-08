@@ -11,7 +11,7 @@ class TripSerializer(serializers.ModelSerializer):
 class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Actvity
-        fields = ['id', 'trip', 'activity_type', 'start_time', 'end_time', 'location']    
+        fields = ['id', 'driver', 'activity_type', 'start_time', 'end_time', 'location']    
 
 
 class DriverSerializer(serializers.ModelSerializer):
