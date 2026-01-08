@@ -27,3 +27,14 @@ class Trip(models.Model):
 
     def __str__(self):
         return f"Trip from {self.pickup_location} to {self.dropoff_location}"
+
+class Actvity(models.Model):
+    trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+    activity_type = models.CharField(max_length=100, choices=[('ONDUTY', 'On Duty'), ('OFFDUTY', 'Off Duty'), ('DRIVING', 'Driving'), ('SLEEPER', 'Sleeper')])
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+    location = models.CharField(max_length=255)
+    note = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"Activity {self.activity_type} for Trip ID {self.trip.id}"

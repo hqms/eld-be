@@ -4,7 +4,7 @@ from django.urls import include, path
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from rest_framework.routers import DefaultRouter
 from main.views import home, MeViewSet
-from main.viewsets import TripViewSet
+from main.viewsets import DriverViewSet, TripViewSet, ActivityViewSet
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -13,6 +13,8 @@ from rest_framework_simplejwt.views import (
 
 router = DefaultRouter()
 router.register(r'trip', TripViewSet, basename='trip')
+router.register(r'driver', DriverViewSet, basename='driver')
+router.register(r'activity', ActivityViewSet, basename='activity')
 router.register(r'me', MeViewSet, basename='me')
 
 urlpatterns = [
