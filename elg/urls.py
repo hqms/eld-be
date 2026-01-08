@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import include, path
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from rest_framework.routers import DefaultRouter
-from main.views import home, me
+from main.views import home, MeViewSet
 from main.viewsets import TripViewSet
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -13,6 +13,7 @@ from rest_framework_simplejwt.views import (
 
 router = DefaultRouter()
 router.register(r'trip', TripViewSet, basename='trip')
+router.register(r'me', MeViewSet, basename='me')
 
 urlpatterns = [
     path('', home, name='home'),
@@ -21,7 +22,6 @@ urlpatterns = [
 
      # JWT AUTH
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/me/', me, name='me'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 
